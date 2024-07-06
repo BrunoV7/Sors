@@ -1,1 +1,107 @@
-<p>login works!</p>
+<section aria-labelledby="formulario-login" class="login-section">
+    <div class="login-container">
+        <div class="logo-container">
+            <svg width="147" height="30" viewBox="0 0 147 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M87.7946 7.03125H75.9394V12.5074H83.9241L86.888 15.2454V23.4915L83.9241 26.2614H75.4862L72.4873 23.4915V21.2946L75.9394 18.27V23.4915H83.4359V15.2454H75.4862L72.4873 12.5074V7.03125L75.4862 4.26135H84.761L87.7946 7.03125ZM107.762 23.4915L104.764 26.2614H98.313L95.3144 23.4915V12.5074L98.313 9.73747H104.764L107.762 12.5074V23.4915ZM104.345 23.4915V12.5074H98.7665V23.4915H104.345ZM128.639 15.2454L125.187 18.3974V12.5074H120.062V26.2614H116.61V9.73747H120.062V12.1253L122.573 9.73747H125.641L128.639 12.5074V15.2454ZM146.105 12.5074H137.492V15.2454H142.234L145.268 18.0153V23.4915L142.234 26.2614H134.04V23.4915H141.816V18.0153H137.074L134.04 15.2454V12.5074L137.074 9.73747H143.036L146.105 12.5074Z"
+                    fill="black" />
+                <path d="M47.8701 14.9996H31.9135L15.9568 29.7387H31.9135L47.8701 14.9996Z" fill="#04724D" />
+                <path d="M47.8701 0.261353H31.9135L15.9568 15.0004H31.9135L47.8701 0.261353Z" fill="#04724D" />
+                <path d="M47.8701 0.261353H31.9135L15.9568 15.0004H31.9135L47.8701 0.261353Z" fill="black"
+                    fill-opacity="0.3" />
+                <path d="M31.9127 0.261353H47.8693L63.8259 15.0004H47.8693L31.9127 0.261353Z" fill="#04724D" />
+                <path d="M0 14.9996H15.9566L31.9133 29.7387H15.9566L0 14.9996Z" fill="#04724D" />
+                <path d="M0 14.9996H15.9566L31.9133 29.7387H15.9566L0 14.9996Z" fill="black" fill-opacity="0.3" />
+            </svg>
+        </div>
+        <div class="login-content">
+            <div class="text-container">
+                <h1>Welcome back!</h1>
+                <h2>
+                    new to Sors? <a href="/signup">Click here to create a new account</a>
+                </h2>
+            </div>
+            <div class="login-form">
+                <!-- TODO: OAuth login option
+                <button class="google_button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M23.275 12.2639C23.275 11.2876 23.1958 10.5751 23.0243 9.83618H11.875V14.2431H18.4194C18.2875 15.3382 17.575 16.9876 15.9916 18.0958L15.9694 18.2434L19.4946 20.9743L19.7389 20.9987C21.9819 18.9271 23.275 15.8792 23.275 12.2639Z"
+                            fill="#4285F4" />
+                        <path
+                            d="M11.875 23.875C15.0812 23.875 17.7729 22.8194 19.7389 20.9986L15.9917 18.0958C14.9889 18.7951 13.643 19.2833 11.875 19.2833C8.73477 19.2833 6.06951 17.2118 5.11942 14.3486L4.98016 14.3605L1.3146 17.1973L1.26666 17.3305C3.21942 21.2097 7.23054 23.875 11.875 23.875Z"
+                            fill="#34A853" />
+                        <path
+                            d="M5.11939 14.3487C4.8687 13.6098 4.72362 12.8181 4.72362 12.0001C4.72362 11.182 4.8687 10.3903 5.1062 9.65144L5.09956 9.49408L1.38807 6.61169L1.26664 6.66945C0.461811 8.2792 0 10.0869 0 12.0001C0 13.9133 0.461811 15.7208 1.26664 17.3306L5.11939 14.3487Z"
+                            fill="#FBBC05" />
+                        <path
+                            d="M11.875 4.71664C14.1049 4.71664 15.609 5.67983 16.4667 6.48474L19.818 3.2125C17.7598 1.29931 15.0812 0.125 11.875 0.125C7.23054 0.125 3.21942 2.79026 1.26666 6.66939L5.10623 9.65138C6.06951 6.78819 8.73477 4.71664 11.875 4.71664Z"
+                            fill="#EB4335" />
+                    </svg>
+                    <p>Log in with google</p>
+                </button>
+            
+                <div class="divider">
+                    <div class="line"></div>
+                    <p>Or</p>
+                    <div class="line"></div>
+                </div>
+                 -->
+                <form aria-describedby="login-description" class="form-container">
+                    <p id="login-description">Enter your credentials to access your user dashboard.</p>
+                    <div class="form-group">
+                        <div class="email">
+                            <label for="email">E-mail:</label>
+                            <input [(ngModel)]="login.email" type="email" name="email" id="email" required aria-required="true"
+                                placeholder="mail@email.com" >
+                        </div>
+                        <div class="password">
+                            <label for="password">Password:</label>
+                            <input [(ngModel)]="login.password" type="password" name="password" id="password" required aria-required="true"
+                                placeholder="Your password">
+                        </div>
+                        <p class="forgot">
+                            <a class="forgot-password" href="/forgot-password">Forgot your password?</a>
+                        </p>
+                    </div>
+                    <button type="submit" class="login-button" (click)="logar()">
+                        <p>Log in</p>
+                    </button>
+                </form>
+                <p id="signup">
+                    Don't have an account?<br> <a href="/signup">Click here to create a new account</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14" fill="none">
+                <path
+                    d="M9.38595 6.65789H15.7719L19.421 3.46491L23.2982 6.88596H29.9123L23.2982 0.5H16.2281L9.38595 6.65789Z"
+                    stroke="black" stroke-opacity="0.4" />
+                <path
+                    d="M2.08771 7.34211H8.47367L12.1228 10.5351L15.7719 7.34211H22.614L15.7719 13.5H8.92981L2.08771 7.34211Z"
+                    stroke="black" stroke-opacity="0.4" />
+            </svg>
+        </div>
+    </div>
+    <div class="ads">
+        <div class="ad-container">
+            <div class="backgroundblur">
+                
+            </div>
+            <div class="ad-content">
+                <img src="https://s3-alpha-sig.figma.com/img/cce1/913b/fbd4a78053756a3d91ec4ac3c69896d1?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ksQ21BkfzTU7tFs1HHf7EheJkLIKr828vUkE3i9NewQzVO7C6yhmAKktzMw~VAE9fKSmYJ5JLEC675W6~3ei1osSZJrerEzK1O6G-UJwVTT-qnPQ1W2dZ~0nzrh5WZc5KG1y-LJuSgmw2yjSZby3egl3G6hRRDBmn~uZZaX-jPU0MDb9SWpzPPa1CNsFNhomrC3kJmk2Zigv1m3LfMbUGrF7gjeezJQIl-yHTipNz3tnlXqngVCjT3HhFMXzPmTlJvCOp73mpPLaWRgRdK1A9n5-i1~X0LCFD8m1cJHSnD~TBVXH0EZv5dc0bqKFi8mIUM6m7DLPlHkn5Ao-QRQqfA__" alt="Image description">
+            </div>
+            <div class="ads-text">
+                <h4>Welcome to sors your new financial buddy</h4>
+                <p>From normal bills and income <br> to credit cards and better visualization of your goals</p>
+                <h3>New features coming soon!</h3>
+            </div>
+        </div>
+        <div class="pills">
+            <div class="pill active"></div>
+            <div class="pill"></div>
+            <div class="pill"></div>
+        </div>
+    </div>
+</section>
