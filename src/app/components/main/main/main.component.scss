@@ -1,0 +1,11 @@
+.main {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+app-sidebar {
+  max-height: 732px;
+  border-right: 1px solid var(--Accent, #8AA2B2);
+  background: #FFF;
+}
