@@ -1,3 +1,5 @@
+
+
 /*
 .logo {
     display: flex;
@@ -352,15 +354,27 @@
 }
 
 .ads {
+    position: relative;
     display: flex;
-    padding: 4rem 4.0625rem;
     flex-direction: column;
     align-items: center;
-    gap: 2.50rem;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 4rem 4.0625rem;
+    border-radius: 4rem;
     flex: 1 0 0;
     align-self: stretch;
+    //background: url('/src/assets/background.png') lightgray 50%/cover;
+}
+
+.ads-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 4rem;
-    background: url(https://s3-alpha-sig.figma.com/img/b7fe/759c/5063a07b356f76357c87a5b8b33e0a7f?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EJxB0TWxDh6uQtGFO9FfeAJJBqcwk1l5p3rV-14laYGXqr2gN~jteC-kjFPXarotFVD8Y~ET4w3mP4a0zdVnaT4cQpL7lpBP0Kap3BvSIKfN~vgtWu9kTgbtyWvnDuVTuqSgjSmwuOXxGeV2Cj5Vx-OKRlZyyhI3buCJb0TsEIsQ27VpUed0BKpIQFy~HwYHaaU5KlZgeFalg~lfau8HFKZ5bKs7ISBXvqdg0hKluFJE8ZwfXxZTGpszx3bzDo6rWkqIulFcI99oCMXZn8Xse0k3RCfumcaJ8Nw8RijadSa25IcGFT0vGmx0a-p5GV1hZrnbxsKzt5HEN8HeOKs3oQ__) lightgray 50% / cover no-repeat;
 }
 
 .ad-container {
@@ -451,6 +465,7 @@
 }
 
 .pills {
+    z-index: 1;
     display: flex;
     padding: 10px;
     align-items: flex-start;

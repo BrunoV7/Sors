@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Login } from '../../../models/login/login';
+import { Login } from '../../../models/login/Login';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from '../../../services/login/login.service';
@@ -28,7 +28,7 @@ export class LoginComponent {
         this.router.navigate(['user/dashboard']);
       },
       error: erro => {
-        this.falhou();
+        this.router.navigate(['login']);
       }
     });
   }

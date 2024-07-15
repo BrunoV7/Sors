@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import  url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 a {
     text-decoration: none;
@@ -22,6 +22,20 @@ hr {
     border: none;
 }
 
+span {
+    color: #6B6B6B;
+}
+
+h2 {
+    color: #6B6B6B;
+}
+
 ol {
     margin: 0;
+}
+
+#body {
+    height: 100vh;
+    margin: 0;
+    font-family: Chivo;
 }
