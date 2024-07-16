@@ -1,1 +1,79 @@
-<p>sidebar works!</p>
+<nav class="sidebar" id="sidebar" #sidebar>
+    <div class="logo">
+        <svg width="48" height="48" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="70" height="70" rx="17.2308" fill="white"/>
+            <path d="M48.4619 35H35.0004L21.5388 48.4615H35.0004L48.4619 35Z" fill="#04724D"/>
+            <path d="M48.4619 21.5391H35.0004L21.5388 35.0006H35.0004L48.4619 21.5391Z" fill="#04724D"/>
+            <path d="M48.4619 21.5391H35.0004L21.5388 35.0006H35.0004L48.4619 21.5391Z" fill="black" fill-opacity="0.3"/>
+            <path d="M35 21.5391H48.4615L61.9231 35.0006H48.4615L35 21.5391Z" fill="#04724D"/>
+            <path d="M8.07715 35H21.5387L35.0002 48.4615H21.5387L8.07715 35Z" fill="#04724D"/>
+            <path d="M8.07715 35H21.5387L35.0002 48.4615H21.5387L8.07715 35Z" fill="black" fill-opacity="0.3"/>
+        </svg>
+    </div>
+    <div class="menu">
+        <div class="menu_options">
+            <ol>
+                <li class="option active">
+                    <span class="material-symbols-outlined">
+                        dashboard
+                    </span>
+                    <h2 class="option-description">Dashboard</h2>
+                </li>
+                <li class="option">
+                    <span class="material-symbols-outlined">
+                        credit_card
+                    </span>
+                    <h2 class="option-description">Credit Cards</h2>
+                </li>
+                <li class="option">
+                    <span class="material-symbols-outlined">
+                        payments
+                    </span>
+                    <h2 class="option-description">Income</h2>
+                </li>
+                <li class="option">
+                    <span class="material-symbols-outlined">
+                        paid
+                    </span>
+                    <h2 class="option-description">Expanses</h2>
+                </li>
+                <li class="option">
+                    <span class="material-symbols-outlined">
+                        account_balance
+                    </span>
+                    <h2 class="option-description">Checking accounts</h2>
+                </li>
+                <li class="option">
+                    <span class="material-symbols-outlined">
+                        rocket_launch
+                    </span>
+                    <h2 class="option-description">Goals</h2>
+                </li>
+                <li class="option">
+                    <span class="material-symbols-outlined">
+                        bid_landscape
+                    </span>
+                    <h2 class="option-description">Stocks</h2>
+                </li>
+                <li class="option">
+                    <span class="material-symbols-outlined">
+                        data_usage
+                    </span>
+                    <h2 class="option-description">Analytics</h2>
+                </li>
+                <li class="option" id="toggle" (click)="toggle()">
+                    <span id="togglebtn" class="material-symbols-outlined">chevron_right</span>
+                    <h2 class="option-description">Toggle</h2>
+                </li>
+            </ol>
+        </div>
+        <div class="user_menu" >
+            <div class="option active">
+                    <span class="material-symbols-outlined">
+                        Logout
+                    </span>
+                <h2 class="option-description">Log out</h2>
+            </div>
+        </div>
+    </div>
+</nav>

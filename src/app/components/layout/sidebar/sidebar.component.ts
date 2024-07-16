@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
+  @ViewChild('sidebar') sidebar!: ElementRef;
+
+  construtor(){
+
+  }
+
+  toggle(){
+    this.sidebar.nativeElement.classList.toggle('open-sidebar');
+  }
 
 }
