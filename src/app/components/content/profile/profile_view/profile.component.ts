@@ -1,5 +1,10 @@
 import { Component, inject } from "@angular/core";
-import { ActivatedRoute, Router, RouterOutlet } from "@angular/router";
+import {
+  ActivatedRoute,
+  Router,
+  RouterLink,
+  RouterOutlet,
+} from "@angular/router";
 import { LoginService } from "../../../../auth/services/login.service";
 import { User } from "../../../../models/user/User";
 import { Observable } from "rxjs";
@@ -7,7 +12,7 @@ import { Observable } from "rxjs";
 @Component({
   selector: "app-profile",
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: "./profile.component.html",
   styleUrl: "./profile.component.scss",
 })

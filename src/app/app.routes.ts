@@ -68,13 +68,12 @@ export const routes: Routes = [
           { path: "new", component: MetasdetailsComponent },
         ],
       },
-      /*
       {
-        path: "config",
+        path: "profile",
         component: ProfileComponent,
         children: [
           {
-            path: "profile",
+            path: "config",
             component: UserComponent,
             outlet: "profile",
           },
@@ -91,7 +90,6 @@ export const routes: Routes = [
           },
         ],
       },
-       */
     ],
   },
 ];
