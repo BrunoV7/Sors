@@ -126,7 +126,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    transition: width 0.3s ease-in;
+    //transition: width 0.3s ease-in;
     height: 0px;
     font-family: Inter, sans-serif;
     font-size: 14px;
@@ -134,7 +134,7 @@
   }
 
   #togglebtn {
-    transition: transform .3s ease;
+    transition: transform .5s ease;
   }
 
   .open-sidebar #togglebtn {
@@ -143,7 +143,7 @@
 
 
   #sidebar.open-sidebar {
-    min-width: 210px;
+    min-width: 190px;
   }
 
   #sidebar.open-sidebar .option-description {

@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { Login } from '../../../models/login/Login';
+import { LoginDTO } from '../../../auth/DTO/loginDTO';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { LoginService } from '../../../services/login/login.service';
+import { LoginService } from '../../../auth/services/login.service';
 import { Router } from '@angular/router';
+import {Login} from "../../../models/login/Login";
 
 @Component({
   selector: 'app-login',
@@ -14,26 +15,28 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  login: Login = new Login();
-
-  loginService = inject(LoginService);
-  router = inject(Router);
-
-  constructor(){
+  constructor(private _loginService: LoginService, private _router: Router) {
+    this._loginService.removeToken();
   }
 
-  logar(){
-    this.loginService.logar(this.login).subscribe({
-      next: retorno => {
-        this.router.navigate(['user/dashboard']);
-      },
-      error: erro => {
-        this.router.navigate(['login']);
-      }
-    });
+  loginForm: Login = new Login();
+
+  login(){
+    this._loginService.login(this.loginForm).subscribe({
+        next: (token: String) => {
+            if (token) {
+                this._loginService.addToken(token.toString());
+              this._router.navigate(['/user/dashboard']);
+            }
+        },
+        error: err =>{
+          this.invalid();
+        }
+    })
   }
 
-  falhou(){
+  invalid(){
 
   }
+
 }

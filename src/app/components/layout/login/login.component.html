@@ -53,19 +53,19 @@
                     <div class="form-group">
                         <div class="email">
                             <label for="email">E-mail:</label>
-                            <input [(ngModel)]="login.email" type="email" name="email" id="email" required aria-required="true"
+                            <input [(ngModel)]="loginForm.email" type="emaisl" name="email" id="email" required aria-required="true"
                                 placeholder="mail@email.com" >
                         </div>
                         <div class="password">
                             <label for="password">Password:</label>
-                            <input [(ngModel)]="login.password" type="password" name="password" id="password" required aria-required="true"
+                            <input [(ngModel)]="loginForm.password" type="password" name="password" id="password" required aria-required="true"
                                 placeholder="Your password">
                         </div>
                         <p class="forgot">
                             <a class="forgot-password" href="/forgot-password">Forgot your password?</a>
                         </p>
                     </div>
-                    <button type="submit" class="login-button" (click)="logar()" style="cursor: pointer">
+                    <button type="submit" class="login-button" (click)="login()" style="cursor: pointer">
                         <p>Log in</p>
                     </button>
                 </form>
