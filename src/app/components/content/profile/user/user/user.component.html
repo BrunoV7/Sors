@@ -1,1 +1,58 @@
-<p>user works!</p>
+<div class="profile">
+    <div class="data">
+        <div class="title">
+            <h2>Profile</h2>
+        </div>
+        <div class="user_data">
+            <div class="text">
+                <h3>Name</h3>
+                @if(updateUser){
+                    <p>{{this.user.nome}}</p>
+                } @else {
+                    <input id="userinput" type="text" [(ngModel)]="UpdateUsername">
+                }
+            </div>
+            @if(updateUser){
+                <button class="update_btn" (click)="toggle()">
+                    <p>Update</p>
+                </button>
+            } @else {
+            <button class="update_btn" (click)="updateUsername()">
+                <p>Updater</p>
+            </button>
+            }
+        </div>
+    </div>
+    <div class="data">
+        <div class="title">
+            <h2>Security</h2>
+        </div>
+        <div class="user_data">
+            <div class="text">
+                <h3>Email</h3>
+                <p>{{ this.user.email }}</p>
+            </div>
+            <button class="update_btn">
+                <p>Update</p>
+            </button>
+        </div>
+        <div class="user_data">
+            <div class="text">
+                <h3>Password</h3>
+                <p>**************************</p>
+            </div>
+            <button class="update_btn">
+                <p>Update</p>
+            </button>
+        </div>
+        <div class="user_data_twofa">
+            <div class="text">
+                <h3>Two-Factor Authentication</h3>
+                <p id="text">Protect your account with an extra layer of security:<br> enable two-factor authentication (2FA) and keep your information safe.</p>
+            </div>
+            <button class="two-fa_btn">
+                <p>Enable 2FA</p>
+            </button>
+        </div>
+    </div>
+</div>
