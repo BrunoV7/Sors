@@ -38,4 +38,15 @@ export class ProfileComponent {
     });
     console.log(this.loadUSer);
   }
+
+  navigate() {
+    this._router.navigate([
+      "/user/profile",
+      { outlets: { profile: "config" } },
+    ]);
+  }
+
+  ngOnInit() {
+    this.navigate();
+  }
 }
