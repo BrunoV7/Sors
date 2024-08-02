@@ -13,32 +13,83 @@ import { MetasComponent } from "./components/content/metas/metas/metas.component
 import { MetasdetailsComponent } from "./components/content/metas/metasdetails/metasdetails.component";
 import { SaidasComponent } from "./components/content/saidas/saidas/saidas.component";
 import { SaidasdetailsComponent } from "./components/content/saidas/saidasdetails/saidasdetails.component";
+import { ProfileComponent } from "./components/content/profile/profile_view/profile.component";
+import { UserComponent } from "./components/content/profile/user/user/user.component";
+import { PreferencesComponent } from "./components/content/profile/preferences/preferences/preferences.component";
+import { BillingComponent } from "./components/content/profile/billing/billing/billing.component";
+import { NotificationsComponent } from "./components/content/profile/notifications/notifications/notifications.component";
 
 export const routes: Routes = [
-    { path: "", redirectTo: "login", pathMatch: "full"},
-    {path: "login", component: LoginComponent},
-    {path: "user", component: MainComponent, children:[
-        {path: "dashboard", component: DashboardComponent},
-        {path: "cartoes", component: CartoesComponent, children:[
-            {path: "compras", component: CompraslistComponent},
-            {path: "compras/edit", component: ComprasdetailsComponent},
-            {path: "compras/new", component: ComprasdetailsComponent}
-        ]},
-        {path: "entradas", component: EntradasComponent, children: [
-            {path: "edit", component: EntradasdetailComponent},
-            {path: "new", component: EntradasdetailComponent}
-        ]},
-        {path: "saidas", component: SaidasComponent, children: [
-            {path: "edit", component: SaidasdetailsComponent},
-            {path: "new", component: SaidasdetailsComponent}
-        ]},
-        {path: "bancos", component: ContasComponent, children:[
-            {path: "edit", component: ContasdetailsComponent},
-            {path: "new", component: ContasdetailsComponent}
-        ]},
-        {path: "metas", component: MetasComponent, children:[
-            {path: "edit", component: MetasdetailsComponent},
-            {path: "new", component: MetasdetailsComponent}
-        ]}
-    ]}
+  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "login", component: LoginComponent },
+  {
+    path: "user",
+    component: MainComponent,
+    children: [
+      { path: "dashboard", component: DashboardComponent },
+      {
+        path: "cards",
+        component: CartoesComponent,
+        children: [
+          { path: "purchases", component: CompraslistComponent },
+          { path: "purchases/edit", component: ComprasdetailsComponent },
+          { path: "purchases/new", component: ComprasdetailsComponent },
+        ],
+      },
+      {
+        path: "income",
+        component: EntradasComponent,
+        children: [
+          { path: "edit", component: EntradasdetailComponent },
+          { path: "new", component: EntradasdetailComponent },
+        ],
+      },
+      {
+        path: "expanses",
+        component: SaidasComponent,
+        children: [
+          { path: "edit", component: SaidasdetailsComponent },
+          { path: "new", component: SaidasdetailsComponent },
+        ],
+      },
+      {
+        path: "banks",
+        component: ContasComponent,
+        children: [
+          { path: "edit", component: ContasdetailsComponent },
+          { path: "new", component: ContasdetailsComponent },
+        ],
+      },
+      {
+        path: "goals",
+        component: MetasComponent,
+        children: [
+          { path: "edit", component: MetasdetailsComponent },
+          { path: "new", component: MetasdetailsComponent },
+        ],
+      },
+      {
+        path: "profile",
+        component: ProfileComponent,
+        children: [
+          {
+            path: "config",
+            component: UserComponent,
+            outlet: "profile",
+          },
+          {
+            path: "preferences",
+            component: PreferencesComponent,
+            outlet: "profile",
+          },
+          { path: "billing", component: BillingComponent, outlet: "profile" },
+          {
+            path: "notifications",
+            component: NotificationsComponent,
+            outlet: "profile",
+          },
+        ],
+      },
+    ],
+  },
 ];

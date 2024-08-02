@@ -1,0 +1,26 @@
+ <header>
+    <h2>Settings</h2>
+  </header>
+  <div class="holder">
+      <ol class="options">
+        <li class="option active" [routerLink]="[{ outlets: { profile: ['config'] } }]">
+          <span class="material-symbols-outlined"> person </span>
+          <p>Profile</p>
+        </li>
+        <li class="option" [routerLink]="[{ outlets: { profile: ['preferences'] } }]">
+          <span class="material-symbols-outlined"> settings </span>
+          <p>Preferences</p>
+        </li>
+        <li class="option" [routerLink]="[{ outlets: { profile: ['billing'] } }]">
+          <span class="material-symbols-outlined"> credit_card </span>
+          <p>Billing</p>
+        </li>
+        <li class="option" [routerLink]="[{ outlets: { profile: ['notifications'] } }]">
+          <span class="material-symbols-outlined"> notifications </span>
+          <p>Notifications</p>
+        </li>
+      </ol>
+    <div>
+      <router-outlet name="profile"></router-outlet>
+    </div>
+  </div>

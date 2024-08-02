@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { CardsSidebarComponent } from '../cartoesSidebar/sidebar.component';
 
 @Component({
   selector: 'app-cartoes',
   standalone: true,
-  imports: [],
+  imports: [CardsSidebarComponent],
   templateUrl: './cartoes.component.html',
   styleUrl: './cartoes.component.scss'
 })

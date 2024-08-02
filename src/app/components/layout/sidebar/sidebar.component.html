@@ -13,53 +13,59 @@
     <div class="menu">
         <div class="menu_options">
             <ol>
-                <li class="option active">
+                <li class="option active" (click) = nav(0)>
                     <span class="material-symbols-outlined">
                         dashboard
                     </span>
                     <h2 class="option-description">Dashboard</h2>
                 </li>
-                <li class="option">
+                <li class="option" (click) = nav(1)>
                     <span class="material-symbols-outlined">
                         credit_card
                     </span>
                     <h2 class="option-description">Credit Cards</h2>
                 </li>
-                <li class="option">
+                <li class="option" (click) = nav(2)>
                     <span class="material-symbols-outlined">
                         payments
                     </span>
                     <h2 class="option-description">Income</h2>
                 </li>
-                <li class="option">
+                <li class="option" (click) = nav(3)>
                     <span class="material-symbols-outlined">
                         paid
                     </span>
                     <h2 class="option-description">Expanses</h2>
                 </li>
-                <li class="option">
+                <li class="option" (click) = nav(4)>
                     <span class="material-symbols-outlined">
                         account_balance
                     </span>
                     <h2 class="option-description">Checking accounts</h2>
                 </li>
-                <li class="option">
+                <li class="option" (click) = nav(5)>
                     <span class="material-symbols-outlined">
                         rocket_launch
                     </span>
                     <h2 class="option-description">Goals</h2>
                 </li>
-                <li class="option">
+                <li class="option" (click) = nav(6)>
                     <span class="material-symbols-outlined">
                         bid_landscape
                     </span>
                     <h2 class="option-description">Stocks</h2>
                 </li>
-                <li class="option">
+                <li class="option" (click) = nav(7)>
                     <span class="material-symbols-outlined">
                         data_usage
                     </span>
                     <h2 class="option-description">Analytics</h2>
+                </li>
+                <li class="option" (click) = nav(8)>
+                    <span class="material-symbols-outlined">
+                        person
+                    </span>
+                    <h2 class="option-description">Profile</h2>
                 </li>
                 <li class="option" id="toggle" (click)="toggle()">
                     <span id="togglebtn" class="material-symbols-outlined">chevron_right</span>
