@@ -1,0 +1,58 @@
+p,
+h4 {
+    margin: 0;
+}
+
+nav {
+    max-width: 400px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.card_list {
+    display: flex;
+    padding: 10px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+
+.card {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 4px;
+}
+
+.card_info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.bill {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+}
+
+.card_description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    flex: 1 0 0;
+}
+
+.bill_info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
