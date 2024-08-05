@@ -23,13 +23,21 @@ export class UserComponent implements OnInit {
   private authServices = inject(LoginService);
   private userService = inject(UserService);
 
-  updateDTO!: UpdateDTO;
+  updateDTO: UpdateDTO = {
+    token: "",
+    nome: "",
+    password: "",
+    email: "",
+  };
+
   loadedUser: User = new User();
   UpdateUsername: string = "";
   token!: string;
   user: User = new User();
   newUser: User = new User();
-  updateUser: boolean = true;
+  btn_user: boolean = true;
+  btn_email: boolean = true;
+  UpdateEmail!: string;
 
   constructor(
     private _route: ActivatedRoute,
@@ -44,12 +52,17 @@ export class UserComponent implements OnInit {
   }
 
   loadUser() {
+    this.updateDTO = {
+      token: "",
+      nome: "",
+      password: "",
+      email: "",
+    };
     this.loadedUser = this.authServices.isLogged();
     if (this.loadedUser && this.loadedUser.id) {
       this.authServices.findbyid(this.loadedUser.id).subscribe({
         next: (data) => {
           this.user = data as User;
-          console.log(this.user);
         },
         error: (err) => {
           console.error(err);
@@ -60,25 +73,44 @@ export class UserComponent implements OnInit {
     }
   }
 
-  toggle() {
-    this.updateUser = !this.updateUser;
+  toggleUser() {
+    this.btn_user = !this.btn_user;
+  }
+
+  toggleEmail() {
+    this.btn_email = !this.btn_email;
   }
 
   updateUsername() {
-    console.log(this.UpdateUsername);
-    if (this.UpdateUsername.trim()) {
-      this.userService
-        .updateUsername(this.token, this.updateDTO.nome)
-        .subscribe({
-          next: (data) => {
-            console.log(data);
-            this.loadUser();
-            this.toggle();
-          },
-          error: (err) => {
-            console.error(err);
-          },
-        });
+    this.updateDTO.nome = this.UpdateUsername;
+    if (this.updateDTO.nome.trim()) {
+      this.userService.updateUsername2(this.updateDTO).subscribe({
+        next: (data) => {
+          this.loadUser();
+          this.toggleUser();
+        },
+        error: (err) => {
+          console.error(err);
+        },
+      });
+    } else {
+      console.error("Username is empty");
+    }
+  }
+
+  updateEmail() {
+    this.updateDTO.email = this.UpdateEmail;
+    if (this.updateDTO.email.trim()) {
+      this.userService.updateEmail(this.updateDTO).subscribe({
+        next: (data) => {
+          this.loadUser();
+          this.toggleUser();
+          this._router.navigate(["/login"]);
+        },
+        error: (err) => {
+          console.error(err);
+        },
+      });
     } else {
       console.error("Username is empty");
     }
@@ -88,7 +120,6 @@ export class UserComponent implements OnInit {
     this.authServices.findbyid(this.loadedUser.id).subscribe({
       next: (data) => {
         this.newUser = data as User;
-        console.log(this.newUser);
       },
       error: (err) => {
         console.error(err);

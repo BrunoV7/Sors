@@ -6,14 +6,14 @@
         <div class="user_data">
             <div class="text">
                 <h3>Name</h3>
-                @if(updateUser){
+                @if(btn_user){
                     <p>{{this.user.nome}}</p>
                 } @else {
                     <input id="userinput" type="text" [(ngModel)]="UpdateUsername">
                 }
             </div>
-            @if(updateUser){
-                <button class="update_btn" (click)="toggle()">
+            @if(btn_user){
+                <button class="update_btn" (click)="toggleUser()">
                     <p>Update</p>
                 </button>
             } @else {
@@ -30,11 +30,21 @@
         <div class="user_data">
             <div class="text">
                 <h3>Email</h3>
-                <p>{{ this.user.email }}</p>
+                @if(btn_email){
+                    <p>{{this.user.email}}</p>
+                } @else {
+                    <input id="emailInput" type="text" [(ngModel)]="UpdateEmail">
+                }
             </div>
-            <button class="update_btn">
-                <p>Update</p>
-            </button>
+            @if(btn_email){
+                <button class="update_btn" (click)="toggleEmail()">
+                    <p>Update</p>
+                </button>
+            } @else {
+                <button class="update_btn" (click)="updateEmail()">
+                    <p>Updater</p>
+                </button>
+            }
         </div>
         <div class="user_data">
             <div class="text">

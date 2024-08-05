@@ -36,7 +36,6 @@ export class ProfileComponent {
         this.user = data as User;
       },
     });
-    console.log(this.loadUSer);
   }
 
   navigate() {

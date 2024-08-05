@@ -1,5 +1,5 @@
 export interface UpdateDTO {
-  Token: string;
+  token: string;
   nome: string;
   password: string;
   email: string;
