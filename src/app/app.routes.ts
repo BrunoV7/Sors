@@ -18,6 +18,7 @@ import { UserComponent } from "./components/content/profile/user/user/user.compo
 import { PreferencesComponent } from "./components/content/profile/preferences/preferences/preferences.component";
 import { BillingComponent } from "./components/content/profile/billing/billing/billing.component";
 import { NotificationsComponent } from "./components/content/profile/notifications/notifications/notifications.component";
+import { CartoesdetailsComponent } from "./components/content/cartoes/cartoesdetails/cartoesdetails.component";
 
 export const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
@@ -30,11 +31,6 @@ export const routes: Routes = [
       {
         path: "cards",
         component: CartoesComponent,
-        children: [
-          { path: "purchases", component: CompraslistComponent },
-          { path: "purchases/edit", component: ComprasdetailsComponent },
-          { path: "purchases/new", component: ComprasdetailsComponent },
-        ],
       },
       {
         path: "income",

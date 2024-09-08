@@ -1,6 +1,30 @@
 <nav>
     <h2>Your cards</h2>
     <ol class="card_list">
+        <li>
+        <li class="card">
+            <div class="card_info">
+                <div class="card_description">
+                    <h4>Summary</h4>
+                </div>
+            </div>
+            <div class="bill_info">
+                <div class="bill">
+                    <p>Balance</p>
+                    <p>R$ {{ total }}</p>
+                </div>
+                <div class="arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <mask id="mask0_322_485" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="12" height="12">
+                            <rect width="12" height="12" fill="#D9D9D9"/>
+                        </mask>
+                        <g mask="url(#mask0_322_485)">
+                            <path d="M4.0125 11L3.125 10.1125L7.2375 6L3.125 1.8875L4.0125 1L9.0125 6L4.0125 11Z" fill="#70757B"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </li>
         @for (item of cartoes; track $index) {
             <li class="card">
                 <div class="card_info">
@@ -19,7 +43,7 @@
                 <div class="bill_info">
                     <div class="bill">
                         <p>Balance</p>
-                        <p>R$ 2555.00</p>
+                        <p>{{ item.valorTemp }}</p>
                     </div>
                     <div class="arrow">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">

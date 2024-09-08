@@ -1,4 +1,72 @@
-<div>
-    <app-sidebar></app-sidebar>
-    <app-cartoesdetails></app-cartoesdetails>
+<div style="display: flex">
+    <nav style="border-right: 1px solid #8AA2B2; height: 100vh">
+        <h2>Your cards</h2>
+        <ol class="card_list">
+            <li>
+            <li class="card" (click)="loadCard(0)">
+                <div class="card_info">
+                    <div class="card_description">
+                        <h4>Summary</h4>
+                    </div>
+                </div>
+                <div class="bill_info">
+                    <div class="bill">
+                        <p>Balance</p>
+                        <p>R$ {{ total }}</p>
+                    </div>
+                    <div class="arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <mask id="mask0_322_485" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="12" height="12">
+                                <rect width="12" height="12" fill="#D9D9D9"/>
+                            </mask>
+                            <g mask="url(#mask0_322_485)">
+                                <path d="M4.0125 11L3.125 10.1125L7.2375 6L3.125 1.8875L4.0125 1L9.0125 6L4.0125 11Z" fill="#70757B"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </li>
+            @for (item of cartoes; track $index) {
+                <li class="card" (click)="loadCard(item.id)">
+                    <div class="card_info">
+                        <div class="logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="18" viewBox="0 0 27 18" fill="none">
+                                <path d="M17.1422 2.43658H9.83569V15.5635H17.1422V2.43658Z" fill="#FF5A00"/>
+                                <path d="M10.3221 9.00001C10.3221 6.33302 11.5759 3.96594 13.4998 2.43654C12.0839 1.32328 10.2978 0.650452 8.34954 0.650452C3.73431 0.650452 0 4.38478 0 9.00001C0 13.6152 3.73431 17.3496 8.34954 17.3496C10.2978 17.3496 12.0839 16.6767 13.4998 15.5635C11.5732 14.0557 10.3221 11.667 10.3221 9.00001Z" fill="#EB001B"/>
+                                <path d="M27.0001 9.00001C27.0001 13.6152 23.2657 17.3496 18.6505 17.3496C16.7023 17.3496 14.9161 16.6767 13.5002 15.5635C15.4485 14.0314 16.6779 11.667 16.6779 9.00001C16.6779 6.33302 15.4242 3.96594 13.5002 2.43654C14.9135 1.32328 16.6996 0.650452 18.6478 0.650452C23.2657 0.650452 27.0001 4.40911 27.0001 9.00001Z" fill="#F79E1B"/>
+                            </svg>
+                        </div>
+                        <div class="card_description">
+                            <h4>{{item.nome}}</h4>
+                            <p>••••{{item.digitos}}</p>
+                        </div>
+                    </div>
+                    <div class="bill_info">
+                        <div class="bill">
+                            <p>Balance</p>
+                            <p>{{ item.valorTemp }}</p>
+                        </div>
+                        <div class="arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <mask id="mask0_322_485" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="12" height="12">
+                                    <rect width="12" height="12" fill="#D9D9D9"/>
+                                </mask>
+                                <g mask="url(#mask0_322_485)">
+                                    <path d="M4.0125 11L3.125 10.1125L7.2375 6L3.125 1.8875L4.0125 1L9.0125 6L4.0125 11Z" fill="#70757B"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ol>
+        <div></div>
+        <div></div>
+    </nav>
+    <!--
+    <div style="width: 100%">
+        <ng-container #cartao></ng-container>
+    </div>2
+    -->
+    <app-cartoesdetails style="width: 100%;" [id] = cardId ></app-cartoesdetails>
 </div>
