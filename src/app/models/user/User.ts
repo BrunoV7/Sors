@@ -3,6 +3,7 @@ import { Entradas } from "../entrada/Entradas";
 import { Cartoes } from "../cartoes/cartoes";
 import { Metas } from "../metas/metas";
 import { Contas } from "../ContasC/contas";
+import { Mes } from "../mes/mes";
 
 export class User {
   id!: number;
@@ -11,9 +12,5 @@ export class User {
   nome!: string;
   role!: string;
   birthdate!: Date;
-  saidas: saidas[] = [];
-  entradas: Entradas[] = [];
-  cartoes: Cartoes[] = [];
-  metas: Metas[] = [];
-  contas_corrente: Contas[] = [];
+  mes: Mes[] = [];
 }

@@ -1,1 +1,55 @@
-<p>entradas works!</p>
+<div>
+    <div class="monthViewer">
+        <div class="custom-select">
+            <div class="selected-option" (click)="toggleDropdown()">
+                {{ mesSelecionado.nome ? mesSelecionado.nome : 'Selecione um mês' }}
+            </div>
+            @if(dropdownOpen){
+            <div class="dropdown">
+                @for (mes of MesDefaultLista; track $index) {
+                    <div class="option" (click)="selectOption(mes)">
+                        <p>{{mes.nome}}</p>
+                    </div>
+                }
+            </div>
+        }
+        </div>
+    </div>
+</div>
+
+<!--Lista todos os meses do ano
+    <div class="months">
+        <ol class="monthList">
+        @for (mes of MesDefaultLista; track $index) {
+            <li class="card">
+                <p>{{mes.nome}}</p>
+            </li>
+        }
+        </ol>
+    </div>
+    -->
+
+<!--Tem um botão que seleciona os meses com popover
+    <div class="monthViewer">
+        <button popovertarget="monthSelector">
+            @if(mesSelecionado){
+            <p>{{MesDefault.nome}}</p>
+            } @else {
+            <p>Selecionar Mês</p>
+            }
+        </button>
+    </div>
+    -->
+
+<!-- Aqui tem o popover tipo um modal com os meses do ano 
+<div id="monthSelector" popover>
+    <ol class="monthListPop">
+        @for (mes of MesDefaultLista; track $index) {
+
+        <li class="cardPop">
+            <p>{{mes.nome}}</p>
+        </li>
+        }
+    </ol>
+</div>
+-->

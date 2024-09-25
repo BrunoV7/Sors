@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.monthList{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+}
+
+.monthList li {
+    flex: 1;
+    height: 100%;
+    transition: flex 0.5s ease;
+    cursor: pointer;
+}
+
+.monthList li:hover {
+    flex: 3;
+}
+
+.monthListPop {
+    display: flex;
+    flex-direction: column;
+}
+
+#monthSelector {
+    position: absolute;
+    top: calc(5% + 8px);
+  left: 50%;  /* Alinha à esquerda do botão */
+    transition: flex 0.5s ease;
+    position: relative;
+}
+
+.monthViewer {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.monthViewer button {
+    width: 250px;
+    position: relative;
+}
+
+
+.custom-select {
+    position: relative;
+    width: 200px;
+    cursor: pointer;
+  }
+  
+  .selected-option {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  
+  .option {
+    padding: 10px;
+  }
+  
+  .option:hover {
+    background-color: #f0f0f0;
+  }
