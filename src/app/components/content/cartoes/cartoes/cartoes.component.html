@@ -6,10 +6,10 @@
             <li class="card" (click)="loadCard(0)">
                 <div class="card_info">
                     <div class="card_description">
-                        <h4>Summary</h4>
+                        <h4 style="color: #6B6B6B">Summary</h4>
                     </div>
                 </div>
-                <div class="bill_info">
+                <div class="bill_info" style="color: #6B6B6B">
                     <div class="bill">
                         <p>Balance</p>
                         <p>R$ {{ total }}</p>
@@ -68,5 +68,5 @@
         <ng-container #cartao></ng-container>
     </div>2
     -->
-    <app-cartoesdetails style="width: 100%;" [id] = cardId ></app-cartoesdetails>
+    <app-cartoesdetails style="width: 100%; max-height: 100vh;" [id] = cardId ></app-cartoesdetails>
 </div>

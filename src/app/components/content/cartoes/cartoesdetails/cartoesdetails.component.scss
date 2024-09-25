@@ -300,7 +300,12 @@ h2,{
   font-size: 24px;
 }
 
-.transactions {
+.transactions ol{
   overflow: auto;
-  max-height: 100vh;
+  max-height: 400px;
 }
+
+.transactions ol li{
+
+}
+

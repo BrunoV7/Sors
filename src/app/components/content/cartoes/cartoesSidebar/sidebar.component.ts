@@ -35,11 +35,12 @@ export class CardsSidebarComponent {
       next: (data) => {
         this.cartoes = data;
         console.log(data);
-        this.loadDefault();
+        //this.loadDefault();
       },
     });
   }
 
+  /*
   loadDefault() {
     for (const cartao of this.cartoes) {
       cartao.valorTemp = 0;
@@ -55,4 +56,6 @@ export class CardsSidebarComponent {
       this.total += compras.valor;
     }
   }
+
+   */
 }

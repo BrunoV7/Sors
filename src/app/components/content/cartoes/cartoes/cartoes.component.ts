@@ -43,11 +43,12 @@ export class CartoesComponent {
       next: (data) => {
         this.cartoes = data;
         console.log(data);
-        this.loadDefault();
+        //this.loadDefault();
       },
     });
   }
 
+  /*
   loadDefault() {
     for (const cartao of this.cartoes) {
       cartao.valorTemp = 0;
@@ -63,7 +64,7 @@ export class CartoesComponent {
       this.total += compras.valor;
     }
   }
-
+  */
   loadCard(id: number) {
     /*
     isso aqui inciava um novo container quando um cartão fosse clicado

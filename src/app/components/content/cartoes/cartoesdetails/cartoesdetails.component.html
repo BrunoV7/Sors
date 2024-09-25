@@ -1,5 +1,19 @@
 <div class="card">
     <div class="card_details" #banner>
+        @if (Cartao.faturas != null){
+    <div class="faturas">
+        <ol>
+            @for (faturas of Cartao.faturas; track $index){
+            <li>
+                <h3>{{faturas.nome}}</h3>
+            </li>
+            }
+            <li>
+                <h3>Novo</h3>
+            </li>
+        </ol>
+    </div>
+        }
     <div class="balance">
       <div class="Texts">
         <p>Your balance</p>
@@ -77,18 +91,24 @@
       </div>
     </div>
   </div>
-  <div class="transactions">
-      <ol>
-          @for(compras of Cartao.compras; track $index){
-              <li>
-                  <p>{{compras.id}}</p>
-                  <p>{{compras.nome}}</p>
-                  <p>{{compras.descricao}}</p>
-                  <p>{{compras.codigo}}</p>
-                  <p>{{compras.valor}}</p>
-                  <p>{{compras.cadastro}}</p>
-              </li>
-          }
-      </ol>
+  <div>
+      
   </div>
+    <div class="transactions">
+        @if (SelecionarFatura?.compras && SelecionarFatura.compras.length > 0){
+        <ol>
+            @for (compra of SelecionarFatura.compras; track $index){
+            <li>
+                <p>{{ compra.id }}</p>
+                <p>{{ compra.nome }}</p>
+                <p>{{ compra.descricao }}</p>
+                <p>{{ compra.codigo }}</p>
+                <p>{{ compra.valor }}</p>
+                <p>{{ compra.cadastro }}</p>
+            </li>
+            }
+        </ol>
+        }
+    </div>
+
 </div>
