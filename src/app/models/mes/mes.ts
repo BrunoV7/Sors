@@ -9,6 +9,8 @@ export class Mes {
     nome!: string;
     status!: string;
     data!: Date;
+    mesId!: number;
+    yearId!: number;
     saidas: saidas[] = [];
     entradas: Entradas[] = [];
     cartoes: Cartoes[] = [];
