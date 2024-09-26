@@ -1,17 +1,17 @@
 <div style="display: flex">
     <nav style="border-right: 1px solid #8AA2B2; height: 100vh">
-        <h2>Your cards</h2>
+        <h2>Seus cartões:</h2>
         <ol class="card_list">
             <li>
             <li class="card" (click)="loadCard(0)">
                 <div class="card_info">
                     <div class="card_description">
-                        <h4 style="color: #6B6B6B">Summary</h4>
+                        <h4 style="color: #6B6B6B">Resumo</h4>
                     </div>
                 </div>
                 <div class="bill_info" style="color: #6B6B6B">
                     <div class="bill">
-                        <p>Balance</p>
+                        <p>Total</p>
                         <p>R$ {{ total }}</p>
                     </div>
                     <div class="arrow">
@@ -43,7 +43,7 @@
                     </div>
                     <div class="bill_info">
                         <div class="bill">
-                            <p>Balance</p>
+                            <p>Total</p>
                             <p>{{ item.valorTemp }}</p>
                         </div>
                         <div class="arrow">

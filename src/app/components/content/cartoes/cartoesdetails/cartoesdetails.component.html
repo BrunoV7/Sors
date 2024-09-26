@@ -1,25 +1,11 @@
 <div class="card">
     <div class="card_details" #banner>
-        @if (Cartao.faturas != null){
-    <div class="faturas">
-        <ol>
-            @for (faturas of Cartao.faturas; track $index){
-            <li>
-                <h3>{{faturas.nome}}</h3>
-            </li>
-            }
-            <li>
-                <h3>Novo</h3>
-            </li>
-        </ol>
-    </div>
-        }
     <div class="balance">
       <div class="Texts">
-        <p>Your balance</p>
+        <p>Sua fatura:</p>
         <h1>R$ {{ total }}</h1>
         <div class="infos">
-          <p>Best day to purchase: 01</p>
+          <p>Melhor dia de compra: 01</p>
           <div class="card_info">
             <div class="logo">
               <svg
@@ -44,33 +30,33 @@
               </svg>
             </div>
             <div class="card_description">
-              <p>••••{{ Cartao.digitos }}</p>
+              <p>•••• {{ Cartao.digitos }}</p>
             </div>
           </div>
         </div>
       </div>
       <div class="details">
-        <h2>Card details:</h2>
+        <h2>Detalhes do cartão:</h2>
         <div class="credit">
           <div class="expire">
             <div class="expire_date">
-              <h3>Expires:</h3>
+              <h3>Expira em:</h3>
               <p>10/25</p>
             </div>
             <div class="expire_date">
-              <h3>Due to:</h3>
+              <h3>Vence em:</h3>
               <p>{{ Cartao.vencimento }}/07/2024</p>
             </div>
           </div>
           <div class="credit_limit">
             <div class="limit">
-              <h4>Credit limit:</h4>
-              <p>R$38.500</p>
+              <h4>Limite disponível do cartão:</h4>
+              <p>R$ 4.580</p>
             </div>
             <div class="chart"></div>
             <div class="limit_details">
-              <p>Available credit:</p>
-              <p>R$ 4.578</p>
+              <p>Limite total de crédito:</p>
+              <p>R$ 38.500</p>
             </div>
           </div>
         </div>
@@ -79,11 +65,11 @@
     <div class="actions">
       <div class="add">
         <span class="material-symbols-outlined"> arrow_downward </span>
-        <p>New payment</p>
+        <p>Novo pagamento</p>
       </div>
       <div class="remove">
         <span class="material-symbols-outlined"> arrow_upward </span>
-        <p>Refund a payment</p>
+        <p>Estornar pagamento</p>
       </div>
       <div class="edit">
         <span class="material-symbols-outlined"> edit </span>

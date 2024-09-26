@@ -1,11 +1,11 @@
 <div class="profile">
     <div class="data">
         <div class="title">
-            <h2>Profile</h2>
+            <h2>Perfil</h2>
         </div>
         <div class="user_data">
             <div class="text">
-                <h3>Name</h3>
+                <h3>Nome</h3>
                 @if(btn_user){
                     <p>{{this.user.nome}}</p>
                 } @else {
@@ -14,18 +14,18 @@
             </div>
             @if(btn_user){
                 <button class="update_btn" (click)="toggleUser()">
-                    <p>Update</p>
+                    <p>Atualizar</p>
                 </button>
             } @else {
             <button class="update_btn" (click)="updateUsername()">
-                <p>Updater</p>
+                <p>Confirmar</p>
             </button>
             }
         </div>
     </div>
     <div class="data">
         <div class="title">
-            <h2>Security</h2>
+            <h2>Segurança</h2>
         </div>
         <div class="user_data">
             <div class="text">
@@ -38,27 +38,27 @@
             </div>
             @if(btn_email){
                 <button class="update_btn" (click)="toggleEmail()">
-                    <p>Update</p>
+                    <p>Atualizar</p>
                 </button>
             } @else {
                 <button class="update_btn" (click)="updateEmail()">
-                    <p>Updater</p>
+                    <p>Confirmar</p>
                 </button>
             }
         </div>
         <div class="user_data">
             <div class="text">
-                <h3>Password</h3>
+                <h3>Senha</h3>
                 <p>**************************</p>
             </div>
             <button class="update_btn">
-                <p>Update</p>
+                <p>Atualizar</p>
             </button>
         </div>
         <div class="user_data_twofa">
             <div class="text">
-                <h3>Two-Factor Authentication</h3>
-                <p id="text">Protect your account with an extra layer of security:<br> enable two-factor authentication (2FA) and keep your information safe.</p>
+                <h3>Autenticação de dois fatores</h3>
+                <p id="text">Proteja sua conta com uma camada extra de segurança:<br> habilite a autenticação de dois fatores (2FA) e mantenha suas informações seguras.</p>
             </div>
             <button class="two-fa_btn">
                 <p>Enable 2FA</p>
