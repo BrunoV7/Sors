@@ -5,7 +5,10 @@ export class Cartoes {
   id!: number;
   nome!: string;
   descricao!: string;
-  cor!: string;
+  cor1!: string;
+  cor2!: string;
+  limite!: number;
+  brand!: number;
   digitos!: number;
   vencimento!: number;
   usuario_id!: number;

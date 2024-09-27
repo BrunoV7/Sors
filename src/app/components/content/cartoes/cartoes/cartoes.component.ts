@@ -3,11 +3,12 @@ import { CardsSidebarComponent } from "../cartoesSidebar/sidebar.component";
 import { CartoesdetailsComponent } from "../cartoesdetails/cartoesdetails.component";
 import { CardsService } from "../../../../services/cards/cards.service";
 import { Cartoes } from "../../../../models/cartoes/cartoes";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-cartoes",
   standalone: true,
-  imports: [CardsSidebarComponent, CartoesdetailsComponent],
+  imports: [CardsSidebarComponent, CartoesdetailsComponent, CommonModule],
   templateUrl: "./cartoes.component.html",
   styleUrl: "./cartoes.component.scss",
 })
@@ -27,15 +28,21 @@ export class CartoesComponent {
   constructor() {}
 
   ngOnInit(): void {
-    //this.loadDummyCard();
+    this.loadDummyCard(10);
     this.loadCards();
   }
 
-  loadDummyCard() {
-    this.card.nome = "Card 1";
-    this.card.digitos = 1234;
-    this.card.id = 0;
-    this.cartoes.push(this.card);
+  loadDummyCard(cards: number) {
+    for (let i = 0; i < cards; i++) {
+      this.card.nome = "cartao" + (i + 1) + "!";
+      this.card.digitos = 1234;
+      this.card.id = 0;
+      this.card.cor1 = "#06593e";
+      this.card.cor2 = "#052016";
+      this.card.brand = 1;
+      this.card.valorTemp = 4505.24;
+      this.cartoes.push(this.card);
+    }
   }
 
   loadCards() {
@@ -80,5 +87,9 @@ export class CartoesComponent {
   }
      */
     this.cardId = id;
+  }
+
+  getGradientColor(cor1: string, cor2: string): string {
+    return "linear-gradient(113deg," + cor1 + " 0%, " + cor2 + " 100%)";
   }
 }

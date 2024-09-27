@@ -40,7 +40,7 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
 
   ngAfterViewInit() {
     if (this.el) {
-      this.el.nativeElement.style.backgroundColor = this.Cartao.cor;
+      this.el.nativeElement.style.backgroundColor = this.Cartao.cor1;
     }
   }
 
