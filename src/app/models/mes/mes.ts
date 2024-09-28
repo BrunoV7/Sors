@@ -3,6 +3,7 @@ import { Cartoes } from "../cartoes/cartoes";
 import { Entradas } from "../entrada/Entradas";
 import { Metas } from "../metas/metas";
 import { saidas } from "../saidas/Saidas";
+import { Fatura } from "../cartoes/fatura";
 
 export class Mes {
     id!: number;
@@ -13,7 +14,7 @@ export class Mes {
     yearId!: number;
     saidas: saidas[] = [];
     entradas: Entradas[] = [];
-    cartoes: Cartoes[] = [];
+    faturas: Fatura[] = [];
     metas: Metas[] = [];
     contas_corrente: Contas[] = [];
 }

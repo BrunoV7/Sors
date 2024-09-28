@@ -124,6 +124,7 @@ nav {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  gap: 8px;
 }
 
 .card {
@@ -140,7 +141,7 @@ nav {
 
 .card p, h1,h2,h3,h4,h5,h6 {
   color: white;
-  mix-blend-mode: difference;
+  //mix-blend-mode: difference;
 }
 
 .card:hover {

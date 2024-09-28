@@ -7,6 +7,7 @@ export class Cartoes {
   descricao!: string;
   cor1!: string;
   cor2!: string;
+  corFonte!: string;
   limite!: number;
   brand!: number;
   digitos!: number;

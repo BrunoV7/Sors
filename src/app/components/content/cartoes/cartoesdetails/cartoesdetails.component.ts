@@ -13,6 +13,7 @@ import { CardsService } from "../../../../services/cards/cards.service";
 import { Cartoes } from "../../../../models/cartoes/cartoes";
 import { NgStyle } from "@angular/common";
 import { Fatura } from "../../../../models/cartoes/fatura";
+import { Compras } from "../../../../models/cartoes/compras";
 
 @Component({
   selector: "app-cartoesdetails",
@@ -23,17 +24,26 @@ import { Fatura } from "../../../../models/cartoes/fatura";
 })
 export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
   @Input("id") id: number = 0;
+  @Input("cartao") cartao: Cartoes = new Cartoes();
+  @Input("fatura") fatura: Fatura = new Fatura();
   @ViewChild("banner") el!: ElementRef;
   Cartao: Cartoes = new Cartoes();
   total: number = 0;
   SelecionarFatura!: Fatura;
+  compras: Compras[] = [];
+  valorFatura: number = 0;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes["id"]) {
       if (this.id == 0) {
+        this.valorFatura = 0;
+    this.compras = [];
         this.loadDefault();
       } else {
-        this.loadCardById(this.id);
+        //this.loadCardById(this.id);
+        this.valorFatura = 0;
+    this.compras = [];
+        this.loadDefault();
       }
     }
   }
@@ -48,14 +58,26 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
 
   constructor() {
     if (this.id == 0) {
+      this.valorFatura = 0;
+    this.compras = [];
       this.loadDefault();
+
     } else {
-      this.loadCardById(this.id);
+      //this.loadCardById(this.id);
+      this.valorFatura = 0;
+    this.compras = [];
+      this.loadDefault();
     }
   }
 
   loadDefault() {
     // Função para carregar valores padrão ou todos
+    this.valorFatura = 0;
+    this.compras = [];
+    this.fatura.compras.forEach((compra) => {
+      this.compras.push(compra);
+      this.valorFatura += compra.valor;
+    })
   }
 
   loadCardById(card_id: number) {
@@ -103,5 +125,9 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
     } else {
       console.log("Faturas não carregadas.");
     }
+  }
+
+  getGradientColor(cor1: string, cor2: string): string {
+    return "linear-gradient(113deg," + cor1 + " 0%, " + cor2 + " 100%)";
   }
 }

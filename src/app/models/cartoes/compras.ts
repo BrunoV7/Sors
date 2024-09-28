@@ -5,5 +5,4 @@ export class Compras {
   descricao!: string;
   cadastro!: Date;
   valor!: number;
-  fatura_id!: number;
 }

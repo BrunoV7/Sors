@@ -10,5 +10,6 @@ export class Fatura {
   dataCadastro!: Date;
   dataPagamento!: Date;
   cartao_credito_id!: number;
+  mes_id!: number;
   compras: Compras[] = [];
 }
