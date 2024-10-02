@@ -1,8 +1,7 @@
 p,
 h4,
 h1,
-h3,
-h2,{
+h3, h2{
   margin: 0;
 }
 
@@ -221,6 +220,7 @@ h2,{
   width: 100%;
   height: 16px;
   background-color: red;
+  mix-blend-mode: difference;
   border-radius: 8px;
 }
 
@@ -300,12 +300,31 @@ h2,{
   font-size: 24px;
 }
 
+.transactions {
+  width: 100%;
+  height: 100%;
+}
+
 .transactions ol{
   overflow: auto;
-  max-height: 400px;
+  max-height: 300px;
 }
 
 .transactions ol li{
-
+  display: flex;
 }
 
+.progress {
+  display: flex;
+  width: 100%
+}
+
+progress{
+  flex: 3;
+  transition: flex 0.5s ease;
+  height: 40px;
+}
+
+progress::-webkit-progress-value {
+  transition: width 1s;
+}

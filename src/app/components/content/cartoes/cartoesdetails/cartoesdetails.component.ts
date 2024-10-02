@@ -11,9 +11,9 @@ import {
 import { RouterOutlet } from "@angular/router";
 import { CardsService } from "../../../../services/cards/cards.service";
 import { Cartoes } from "../../../../models/cartoes/cartoes";
-import { NgStyle } from "@angular/common";
 import { Fatura } from "../../../../models/cartoes/fatura";
 import { Compras } from "../../../../models/cartoes/compras";
+import { NgStyle } from "@angular/common";
 
 @Component({
   selector: "app-cartoesdetails",

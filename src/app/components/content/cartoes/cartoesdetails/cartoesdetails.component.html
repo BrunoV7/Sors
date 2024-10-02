@@ -35,10 +35,12 @@
               <h4>Limite disponível do cartão:</h4>
               <p>R$ 4.580</p>
             </div>
-            <div class="chart"></div>
+            <div class="progress">
+              <progress  id="file" value="{{valorFatura}}" max="{{cartao.limite}}"></progress>
+            </div>
             <div class="limit_details">
               <p>Limite total de crédito:</p>
-              <p>R$ 38.500</p>
+              <p>{{cartao.limite}}</p>
             </div>
           </div>
         </div>
@@ -65,12 +67,14 @@
   <div class="transactions">
     <ol>
       @for(compra of compras; track $index){
-      <p>{{ compra.id }}</p>
+        <li>
+          <p>{{ compra.id }}</p>
       <p>{{ compra.nome }}</p>
       <p>{{ compra.descricao }}</p>
       <p>{{ compra.codigo }}</p>
       <p>{{ compra.valor }}</p>
       <p>{{ compra.cadastro }}</p>
+        </li>
       }
     </ol>
   </div>

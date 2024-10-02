@@ -76,7 +76,7 @@ export class CartoesComponent {
       newFatura.vencimento = this.getRandomInteger(1, 12);
       newFatura.status = "atual";
       newFatura.dataCadastro = new Date();
-      newFatura.cartao_credito_id = i;
+      newFatura.cartao_credito_id = i + 1;
       newFatura.compras = [];
 
       for (let j = 0; j < setCompras; j++) {
@@ -173,9 +173,11 @@ export class CartoesComponent {
   
       // Atribui o total temporário ao valor do cartão
       this.cartoes[i].valorTemp = totalTemp;
+      this.cartoes[i].limite = totalTemp + (totalTemp * (this.getRandomInteger(1, 100) * 0.01));
   
       // Soma o valor total ao acumulado geral
       this.total += totalTemp;
+
     }
   }
   
