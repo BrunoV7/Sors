@@ -148,7 +148,16 @@ export class CartoesComponent {
     newCompra.descricao = "nova compra!"
     newCompra.cadastro = new Date();
     newCompra.valor = this.getRandomInteger(1, 1000);
+    newCompra.total = this.toReal(newCompra.valor);
     return newCompra;
+  }
+  
+  toReal(price: number){
+    let retorno = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(price);
+    return retorno;
   }
 
   loadValores() {

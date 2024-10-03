@@ -6,6 +6,7 @@ export class Fatura {
   descricao!: string;
   vencimento!: number;
   preco!: number;
+  total!: string;
   status!: string;
   dataCadastro!: Date;
   dataPagamento!: Date;

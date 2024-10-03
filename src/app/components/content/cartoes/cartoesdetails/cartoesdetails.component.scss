@@ -1,8 +1,13 @@
 p,
 h4,
 h1,
-h3, h2{
+h3,
+h2 {
   margin: 0;
+}
+
+ol {
+  padding: 0;
 }
 
 .card {
@@ -302,16 +307,22 @@ h3, h2{
 
 .transactions {
   width: 100%;
-  height: 100%;
 }
 
-.transactions ol{
-  overflow: auto;
-  max-height: 300px;
-}
-
-.transactions ol li{
+.transactions {
+  overflow-y: scroll;
+  height: 360px;
   display: flex;
+  flex-direction: column;
+}
+
+.transactions::-webkit-scrollbar {
+  width: 10px;
+}
+
+.transactions tbody,
+thead {
+  width: 100%;
 }
 
 .progress {
@@ -319,7 +330,7 @@ h3, h2{
   width: 100%
 }
 
-progress{
+progress {
   flex: 3;
   transition: flex 0.5s ease;
   height: 40px;
@@ -327,4 +338,39 @@ progress{
 
 progress::-webkit-progress-value {
   transition: width 1s;
+}
+
+.transaction {
+  display: flex;
+}
+
+.fixed {
+  display: flex;
+  top: 0;
+  z-index: 2;
+  position: sticky;
+  background-color: white;
+}
+
+.fixed tr {
+  display: flex;
+  width: 100%;
+}
+
+th {
+  width: 100%;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+tr {
+  display: flex;
+  width: 100%;
+}
+
+td {
+  width: 100%;
+  text-align: center;
 }

@@ -36,7 +36,7 @@
               <p>R$ 4.580</p>
             </div>
             <div class="progress">
-              <progress  id="file" value="{{valorFatura}}" max="{{cartao.limite}}"></progress>
+              <progress id="file" value="{{valorFatura}}" max="{{cartao.limite}}"></progress>
             </div>
             <div class="limit_details">
               <p>Limite total de crédito:</p>
@@ -64,20 +64,29 @@
   <div>
 
   </div>
-  <div class="transactions">
-    <ol>
+
+  <table class="transactions">
+    <thead class="fixed">
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Código</th>
+        <th>Valor</th>
+        <th>Cadastro</th>
+      </tr>
+    </thead>
+    <tbody>
       @for(compra of compras; track $index){
-        <li>
-          <p>{{ compra.id }}</p>
-      <p>{{ compra.nome }}</p>
-      <p>{{ compra.descricao }}</p>
-      <p>{{ compra.codigo }}</p>
-      <p>{{ compra.valor }}</p>
-      <p>{{ compra.cadastro }}</p>
-        </li>
+      <tr>
+        <td><p>{{compra.nome}}</p></td>
+        <td><p>{{compra.descricao}}</p></td>
+        <td><p>{{compra.codigo}}</p></td>
+        <td><p>{{compra.total}}</p></td>
+        <td><p>{{compra.cadastro.toLocaleDateString()}}</p></td>
+      </tr>
       }
-    </ol>
-  </div>
+    </tbody>
+  </table>
 
 </div>
 

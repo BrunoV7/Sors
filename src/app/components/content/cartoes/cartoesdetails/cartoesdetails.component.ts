@@ -102,7 +102,7 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
       console.log(this.total);
     }
   }
-
+  //JetBrains Mono, Menlo, Monaco, Courier New, monospace
   loadValorFaturaAtual() {
     this.total = 0;
 
@@ -129,5 +129,13 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
 
   getGradientColor(cor1: string, cor2: string): string {
     return "linear-gradient(113deg," + cor1 + " 0%, " + cor2 + " 100%)";
+  }
+
+  toReal(price: number){
+    let retorno = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(price);
+    return retorno;
   }
 }

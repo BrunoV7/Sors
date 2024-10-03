@@ -5,4 +5,5 @@ export class Compras {
   descricao!: string;
   cadastro!: Date;
   valor!: number;
+  total!: string;
 }
