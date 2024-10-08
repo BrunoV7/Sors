@@ -10,11 +10,6 @@ ol {
   padding: 0;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
 .card {
   display: flex;
   flex-direction: column;
@@ -310,12 +305,57 @@ table {
   font-size: 24px;
 }
 
+.progress {
+  display: flex;
+  width: 100%
+}
+
+progress {
+  flex: 3;
+  transition: flex 0.5s ease;
+  height: 40px;
+}
+
+progress::-webkit-progress-value {
+  transition: width 1s;
+}
+
+.tabs {
+  display: flex;
+  width: 100%;
+  height: 60px;
+}
+
+.tabOption {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.tabOption:hover {
+  cursor: pointer;
+}
+
+.active {
+  background-color: #bebebe57;
+}
+
+.tabOption span {
+  font-size: 18px;
+}
+
+
+/* transactions com table
 .transactions {
   width: 100%;
 }
 
 .transactions {
-  width: 100%;
+  overflow-y: scroll;
+  height: 360px;
   display: flex;
   flex-direction: column;
 }
@@ -354,22 +394,6 @@ progress::-webkit-progress-value {
   z-index: 2;
   position: sticky;
   background-color: white;
-  border-bottom: 2px solid rgba(107, 107, 107, 0.55);
-  margin-bottom: 16px;
-}
-
-table {
-  padding-left: 40px;
-}
-
-.name {
-  display: flex;
-  flex-direction: column;
-}
-
-.nameTitle {
-  font-size: 18px;
-  font-weight: bold;
 }
 
 .fixed tr {
@@ -378,73 +402,32 @@ table {
 }
 
 th {
-  padding: 8px 16px;
   width: 100%;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
+
 tr {
   display: flex;
   width: 100%;
-  justify-content: space-between;
-  gap: 16px;
 }
 
 td {
   width: 100%;
-  max-width: 200px;
-  text-align: left;
-  padding: 12px 20px;
-}
-
-th {
-  max-width: 200px;
-  text-align: left;
-  justify-content: space-between;
-  padding: 12px 20px;
-}
-
-tbody {
-  display: flex;
-  gap: 6px;
-  flex-direction: column;
-}
-
-.name {
-  max-width: 400px;
-}
-
-.icons {
-  display: flex;
-  width: 100px;
   text-align: center;
-  padding: 0;
-  justify-content: center;
 }
+*/
 
-.total {
-  width: 200px;
-}
-
-.icons img {
-  padding: 14px;
-  background-color: #D9D9D9;
-  border-radius: 30%;
-  //border: 0.5px solid #6B6B6B;
-}
-
-
-tbody {
-  overflow-y: auto;
-  overflow-x: auto;
-  max-height: 50vh;
+.transactions {
+  display: flex;
   width: 100%;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
 }
 
-/*
-table {
-  overflow-y: auto;
-  overflow-x: auto;
-  max-height: 55vh;
-  width: 100%;
-}
+.compra {
 
- */
+}
