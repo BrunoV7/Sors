@@ -1,6 +1,9 @@
 <div class="card">
-  <div class="card_details" #banner [style.background]="getGradientColor(cartao.cor1, cartao.cor2)">
-
+  <div
+    class="card_details"
+    #banner
+    [style.background]="getGradientColor(cartao.cor1, cartao.cor2)"
+  >
     <div class="balance">
       <div class="Texts">
         <p>Sua fatura:</p>
@@ -9,7 +12,7 @@
           <p>Melhor dia de compra: 01</p>
           <div class="card_info">
             <div class="logo">
-              <img [src]="'assets/cards/logo' + cartao.brand + '.svg'">
+              <img [src]="'assets/cards/logo' + cartao.brand + '.svg'" />
             </div>
             <div class="card_description">
               <p>•••• {{ Cartao.digitos }}</p>
@@ -36,11 +39,15 @@
               <p>R$ 4.580</p>
             </div>
             <div class="progress">
-              <progress id="file" value="{{valorFatura}}" max="{{cartao.limite}}"></progress>
+              <progress
+                id="file"
+                value="{{ valorFatura }}"
+                max="{{ cartao.limite }}"
+              ></progress>
             </div>
             <div class="limit_details">
               <p>Limite total de crédito:</p>
-              <p>{{cartao.limite}}</p>
+              <p>{{ cartao.limite }}</p>
             </div>
           </div>
         </div>
@@ -87,7 +94,6 @@
       }
     </tbody>
   </table>
-
 </div>
 
 <!--

@@ -8,6 +8,7 @@ import { Fatura } from "../../../../models/cartoes/fatura";
 import { Compras } from "../../../../models/cartoes/compras";
 import { Mes } from "../../../../models/mes/mes";
 import { Entradas } from "../../../../models/entrada/Entradas";
+import { Categoria } from "../../../../models/cartoes/Categoria";
 
 @Component({
   selector: "app-cartoes",
@@ -39,7 +40,7 @@ export class CartoesComponent {
   holdId!: number;
   cardId: number = 0;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.loadDummyMes();
@@ -64,7 +65,6 @@ export class CartoesComponent {
     }
     this.loadDummyFatura(cards, this.MesDefault.id);
   }
-
 
   loadDummyFatura(faturas: number, mes_id: number) {
     for (let i = 0; i < faturas; i++) {
@@ -91,14 +91,12 @@ export class CartoesComponent {
     }
   }
 
-
-
   loadDummyMes() {
     let newMes = new Mes();
     let data = new Date();
     newMes.id = 0;
     newMes.yearId = data.getFullYear();
-    newMes.mesId = (data.getMonth() + 1);
+    newMes.mesId = data.getMonth() + 1;
     switch (newMes.mesId) {
       case 1:
         newMes.nome = "janeiro";
@@ -145,17 +143,20 @@ export class CartoesComponent {
     let newCompra = new Compras();
     newCompra.nome = "compra" + (id + 1) + "!";
     newCompra.codigo = "codigo" + (id + 1) + "!";
-    newCompra.descricao = "nova compra!"
+    newCompra.descricao = "nova compra!";
     newCompra.cadastro = new Date();
+    newCompra.categoria = new Categoria();
+    newCompra.categoria.id = this.getRandomInteger(1, 11);
+    newCompra.categoria.name = "categoria" + newCompra.categoria.id + "!";
     newCompra.valor = this.getRandomInteger(1, 1000);
     newCompra.total = this.toReal(newCompra.valor);
     return newCompra;
   }
-  
-  toReal(price: number){
-    let retorno = new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
+
+  toReal(price: number) {
+    let retorno = new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
     }).format(price);
     return retorno;
   }
@@ -163,33 +164,35 @@ export class CartoesComponent {
   loadValores() {
     // Inicializa o valor total
     this.total = 0;
-  
+
     for (let i = 0; i < this.cartoes.length; i++) {
       let totalTemp: number = 0;
-  
+
       // Filtra todas as faturas relacionadas ao cartão atual
-      let faturasCartao = this.MesDefault.faturas.filter(fatura => fatura.cartao_credito_id == this.cartoes[i].id);
-  
+      let faturasCartao = this.MesDefault.faturas.filter(
+        (fatura) => fatura.cartao_credito_id == this.cartoes[i].id,
+      );
+
       // Para cada fatura encontrada, adiciona ao array de faturas do cartão e soma os valores
-      faturasCartao.forEach(fatura => {
+      faturasCartao.forEach((fatura) => {
         this.cartoes[i].faturas.push(fatura);
-        
+
         // Soma os valores das compras desta fatura
-        fatura.compras.forEach(compra => {
+        fatura.compras.forEach((compra) => {
           totalTemp += compra.valor;
         });
       });
-  
+
       // Atribui o total temporário ao valor do cartão
       this.cartoes[i].valorTemp = totalTemp;
-      this.cartoes[i].limite = totalTemp + (totalTemp * (this.getRandomInteger(1, 100) * 0.01));
-  
+      this.cartoes[i].limite =
+        totalTemp + totalTemp * (this.getRandomInteger(1, 100) * 0.01);
+
       // Soma o valor total ao acumulado geral
       this.total += totalTemp;
-
     }
   }
-  
+
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
   }
@@ -200,7 +203,7 @@ export class CartoesComponent {
   }
 
   randomColor() {
-    let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
     return randomColor;
   }
 
@@ -255,8 +258,7 @@ export class CartoesComponent {
       if (fatura.cartao_credito_id == cartao.id) {
         this.faturaSelecionada = fatura;
       }
-    }
-    );
+    });
     this.cardId = id;
     this.cartaoSelecionado = cartao;
   }

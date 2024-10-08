@@ -1,3 +1,5 @@
+import { Categoria } from "./Categoria";
+
 export class Compras {
   id!: number;
   nome!: string;
@@ -6,4 +8,5 @@ export class Compras {
   cadastro!: Date;
   valor!: number;
   total!: string;
+  categoria!: Categoria;
 }
