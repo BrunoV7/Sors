@@ -61,9 +61,27 @@
       </div>
     </div>
   </div>
-  <div>
-
+  <div class="tabs">
+    <div class="tabOption active" (click)="toggleTab(1)" #tabOption1>Pagamentos</div>
+    <div class="tabOption" (click)="toggleTab(2)" #tabOption2>Detalhes</div>
   </div>
+    @if (tab) {
+    <div class="transactions">
+      @for(compra of compras; track $index){
+      <div>
+        
+      </div>
+      }
+    </div>
+    }@else {
+    <div class="chart">
+
+    </div>
+    }
+
+</div>
+
+<!--
 
   <table class="transactions">
     <thead class="fixed">
@@ -88,9 +106,6 @@
     </tbody>
   </table>
 
-</div>
-
-<!--
         @if (SelecionarFatura?.compras && SelecionarFatura.compras.length > 0){
         <ol>
             @for (compra of SelecionarFatura.compras; track $index){
@@ -105,4 +120,36 @@
             }
         </ol>
         }
+
+
+
+
+
+
+
+
+        <table class="transactions">
+        <tbody>
+          @for(compra of compras; track $index){
+          <tr>
+            <app-transaction [compra]="compra"></app-transaction>
+            <td>
+              <p>{{compra.nome}}</p>
+            </td>
+            <td>
+              <p>{{compra.descricao}}</p>
+            </td>
+            <td>
+              <p>{{compra.codigo}}</p>
+            </td>
+            <td>
+              <p>{{compra.total}}</p>
+            </td>
+            <td>
+              <p>{{compra.cadastro.toLocaleDateString()}}</p>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
         -->

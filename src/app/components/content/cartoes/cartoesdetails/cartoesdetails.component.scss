@@ -14,7 +14,7 @@ ol {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  //gap: 16px;
   flex: 1 0 0;
   align-self: stretch;
 }
@@ -305,6 +305,50 @@ ol {
   font-size: 24px;
 }
 
+.progress {
+  display: flex;
+  width: 100%
+}
+
+progress {
+  flex: 3;
+  transition: flex 0.5s ease;
+  height: 40px;
+}
+
+progress::-webkit-progress-value {
+  transition: width 1s;
+}
+
+.tabs {
+  display: flex;
+  width: 100%;
+  height: 60px;
+}
+
+.tabOption {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.tabOption:hover {
+  cursor: pointer;
+}
+
+.active {
+  background-color: #bebebe57;
+}
+
+.tabOption span {
+  font-size: 18px;
+}
+
+
+/* transactions com table
 .transactions {
   width: 100%;
 }
@@ -325,20 +369,6 @@ thead {
   width: 100%;
 }
 
-.progress {
-  display: flex;
-  width: 100%
-}
-
-progress {
-  flex: 3;
-  transition: flex 0.5s ease;
-  height: 40px;
-}
-
-progress::-webkit-progress-value {
-  transition: width 1s;
-}
 
 .transaction {
   display: flex;
@@ -373,4 +403,17 @@ tr {
 td {
   width: 100%;
   text-align: center;
+}
+*/
+
+.transactions {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+}
+
+.compra {
+  
 }

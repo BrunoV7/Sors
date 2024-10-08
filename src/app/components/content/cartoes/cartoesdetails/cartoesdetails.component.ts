@@ -14,11 +14,12 @@ import { Cartoes } from "../../../../models/cartoes/cartoes";
 import { Fatura } from "../../../../models/cartoes/fatura";
 import { Compras } from "../../../../models/cartoes/compras";
 import { NgStyle } from "@angular/common";
+import { TransactionComponent } from "../../../transaction/transaction.component";
 
 @Component({
   selector: "app-cartoesdetails",
   standalone: true,
-  imports: [RouterOutlet, NgStyle],
+  imports: [RouterOutlet, NgStyle, TransactionComponent],
   templateUrl: "./cartoesdetails.component.html",
   styleUrls: ["./cartoesdetails.component.scss"],
 })
@@ -27,11 +28,14 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
   @Input("cartao") cartao: Cartoes = new Cartoes();
   @Input("fatura") fatura: Fatura = new Fatura();
   @ViewChild("banner") el!: ElementRef;
+  @ViewChild("tabOption1") tabOption1!: ElementRef;
+  @ViewChild("tabOption2") tabOption2!: ElementRef;
   Cartao: Cartoes = new Cartoes();
   total: number = 0;
   SelecionarFatura!: Fatura;
   compras: Compras[] = [];
   valorFatura: number = 0;
+  tab: boolean = true;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes["id"]) {
@@ -138,4 +142,24 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
     }).format(price);
     return retorno;
   }
+
+  toggleTab(opc: number){
+    switch(opc){
+      case 1:
+        this.tab = true;
+        this.tabOption2.nativeElement.classList.toggle("active");
+        this.tabOption1.nativeElement.classList.toggle("active");
+        break;
+      case 2:
+        this.tab = false;
+        this.tabOption1.nativeElement.classList.toggle("active");
+        this.tabOption2.nativeElement.classList.toggle("active");
+        break;
+    }
+  }
+
+  toPeriod(compra: Compras0){
+
+  }
+  
 }
