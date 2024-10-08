@@ -93,26 +93,39 @@
   <table class="transactions">
     <thead class="fixed">
       <tr>
-        <th>Nome</th>
-        <th>Descrição</th>
-        <th>Código</th>
-        <th>Valor</th>
-        <th>Cadastro</th>
+        <th class="icons" style="border-style: none; align-items: center"><h3>#</h3></th>
+        <th class="name"><h3>Nome</h3></th>
+        <th><h3>Categoria</h3></th>
+        <th class="total"><h3>Valor</h3></th>
+        <th style="text-align: center"><h3>Data</h3></th>
       </tr>
     </thead>
     <tbody>
-      @for(compra of compras; track $index){
-      <tr>
-        <td><p>{{compra.nome}}</p></td>
-        <td><p>{{compra.descricao}}</p></td>
-        <td><p>{{compra.codigo}}</p></td>
-        <td><p>{{compra.total}}</p></td>
-        <td><p>{{compra.cadastro.toLocaleDateString()}}</p></td>
-      </tr>
+      @for (compra of compras; track $index) {
+        <tr>
+          <td class="icons">
+              <img width="30px" [src]="'assets/categories/cat' + compra.categoria.id + '.svg'" />
+          </td>
+          <td  class="name">
+            <p class="nameTitle">{{ compra.nome }}</p>
+              <p style="font-size: 14px">{{compra.descricao}}</p>
+          </td>
+          <td>
+            <p>{{ compra.categoria.name }}</p>
+          </td>
+          <td class="total">
+            <p>{{ compra.total }}</p>
+          </td>
+          <td style="text-align: center">
+            <p>{{ compra.cadastro.toLocaleDateString() }}</p>
+          </td>
+        </tr>
       }
     </tbody>
   </table>
+</div>
 
+<!--
         @if (SelecionarFatura?.compras && SelecionarFatura.compras.length > 0){
         <ol>
             @for (compra of SelecionarFatura.compras; track $index){
