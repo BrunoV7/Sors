@@ -15,6 +15,7 @@ import { Fatura } from "../../../../models/cartoes/fatura";
 import { Compras } from "../../../../models/cartoes/compras";
 import { NgStyle } from "@angular/common";
 import { TransactionComponent } from "../../../transaction/transaction.component";
+import { Period } from "../../../../models/period/period";
 
 @Component({
   selector: "app-cartoesdetails",
@@ -34,6 +35,7 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
   total: number = 0;
   SelecionarFatura!: Fatura;
   compras: Compras[] = [];
+  periods: Period[] = [];
   valorFatura: number = 0;
   tab: boolean = true;
 
@@ -41,12 +43,12 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
     if (changes["id"]) {
       if (this.id == 0) {
         this.valorFatura = 0;
-    this.compras = [];
+        this.compras = [];
         this.loadDefault();
       } else {
         //this.loadCardById(this.id);
         this.valorFatura = 0;
-    this.compras = [];
+        this.compras = [];
         this.loadDefault();
       }
     }
@@ -63,13 +65,12 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
   constructor() {
     if (this.id == 0) {
       this.valorFatura = 0;
-    this.compras = [];
+      this.compras = [];
       this.loadDefault();
-
     } else {
       //this.loadCardById(this.id);
       this.valorFatura = 0;
-    this.compras = [];
+      this.compras = [];
       this.loadDefault();
     }
   }
@@ -80,15 +81,15 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
     this.compras = [];
     this.fatura.compras.forEach((compra) => {
       this.compras.push(compra);
+      this.toPeriod(compra);
       this.valorFatura += compra.valor;
-    })
+    });
   }
 
   loadCardById(card_id: number) {
     this.cardService.findById(this.id).subscribe({
       next: (data) => {
         this.Cartao = data;
-        console.log(this.Cartao);
         this.loadValorFaturaAtual();
       },
     });
@@ -103,7 +104,6 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
 
     for (const compra of this.SelecionarFatura.compras) {
       this.total += compra.valor;
-      console.log(this.total);
     }
   }
   //JetBrains Mono, Menlo, Monaco, Courier New, monospace
@@ -135,16 +135,16 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
     return "linear-gradient(113deg," + cor1 + " 0%, " + cor2 + " 100%)";
   }
 
-  toReal(price: number){
-    let retorno = new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
+  toReal(price: number) {
+    let retorno = new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
     }).format(price);
     return retorno;
   }
 
-  toggleTab(opc: number){
-    switch(opc){
+  toggleTab(opc: number) {
+    switch (opc) {
       case 1:
         this.tab = true;
         this.tabOption2.nativeElement.classList.toggle("active");
@@ -158,8 +158,64 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
     }
   }
 
-  toPeriod(compra: Compras0){
-
+  toPeriod(compra: Compras) {
+    const found = this.periods.find(
+      (period) =>
+        period.date.getDay() == compra.cadastro.getDay() &&
+        period.date.getMonth() == compra.cadastro.getMonth() &&
+        period.date.getFullYear() == compra.cadastro.getFullYear(),
+    );
+    if (found) {
+      found.value += compra.valor;
+      found.compras.push(compra);
+      console.log(found);
+    } else {
+      let period: Period = new Period();
+      period.id = this.periods.length + 1;
+      period.month_id = compra.cadastro.getMonth();
+      period.date = compra.cadastro;
+      switch (period.date.getMonth()) {
+        case 0:
+          period.month = "janeiro";
+          break;
+        case 1:
+          period.month = "fevereiro";
+          break;
+        case 2:
+          period.month = "março";
+          break;
+        case 3:
+          period.month = "abril";
+          break;
+        case 4:
+          period.month = "maio";
+          break;
+        case 5:
+          period.month = "junho";
+          break;
+        case 6:
+          period.month = "julho";
+          break;
+        case 7:
+          period.month = "agosto";
+          break;
+        case 8:
+          period.month = "setembro";
+          break;
+        case 9:
+          period.month = "outubro";
+          break;
+        case 10:
+          period.month = "novembro";
+          break;
+        case 11:
+          period.month = "dezembro";
+          break;
+      }
+      period.value += compra.valor;
+      period.compras.push(compra);
+      console.log(period);
+      this.periods.push(period);
+    }
   }
-  
 }

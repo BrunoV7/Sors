@@ -74,9 +74,18 @@
   </div>
     @if (tab) {
     <div class="transactions">
-      @for(compra of compras; track $index){
-      <div>
-
+      @for(period of periods; track $index){
+      <div class="period">
+        <h3>{{period.date.getDate()}} de {{period.month}} de {{period.date.getFullYear()}}</h3>
+          @for (compra of period.compras; track $index){
+              <div class="transaction">
+                  <p>{{ compra.id }}</p>
+                  <p>{{ compra.nome }}</p>
+                  <p>{{ compra.descricao }}</p>
+                  <p>{{ compra.codigo }}</p>
+                  <p>{{ compra.total }}</p>
+              </div>
+          }
       </div>
       }
     </div>
