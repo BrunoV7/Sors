@@ -42,16 +42,20 @@ export class CartoesdetailsComponent implements OnChanges, AfterViewInit {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes["id"]) {
       if (this.id == 0) {
-        this.valorFatura = 0;
-        this.compras = [];
+        this.cleanBuffer();
         this.loadDefault();
       } else {
         //this.loadCardById(this.id);
-        this.valorFatura = 0;
-        this.compras = [];
+        this.cleanBuffer();
         this.loadDefault();
       }
     }
+  }
+
+  cleanBuffer() {
+    this.valorFatura = 0;
+    this.compras = [];
+    this.periods = [];
   }
 
   ngAfterViewInit() {

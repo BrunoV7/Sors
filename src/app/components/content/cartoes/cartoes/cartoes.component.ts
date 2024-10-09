@@ -40,7 +40,7 @@ export class CartoesComponent {
   holdId!: number;
   cardId: number = 0;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.loadDummyMes();
@@ -144,7 +144,10 @@ export class CartoesComponent {
     newCompra.nome = "compra" + (id + 1) + "!";
     newCompra.codigo = "codigo" + (id + 1) + "!";
     newCompra.descricao = "nova compra!";
-    newCompra.cadastro = new Date();
+    let dia = Math.floor(Math.random() * 31) + 1; // Gera um número aleatório entre 1 e 31
+    newCompra.cadastro = new Date(`2024-10-${dia < 10 ? '0' + dia : dia}`); // Adiciona um zero à esquerda se o dia for menor que 10
+    console.log(newCompra.cadastro);
+    console.log(dia);
     newCompra.categoria = new Categoria();
     newCompra.categoria.id = this.getRandomInteger(1, 11);
     newCompra.categoria.name = "categoria" + newCompra.categoria.id + "!";
